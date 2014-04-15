@@ -26,12 +26,15 @@ The plugin provides two ways to only display a part of the circle:
 ## Example:
 [Live demo](http://jieter.github.com/Leaflet-semicircle/example-semicircle.html)
 
+**Fork note** : direct options are NOT working, use `setStartAngle` and `setStopAngle`.
+
 Useing `options.startAngle` and `options.stopAngle`:
+
 ```
-L.circleMarker([51.5, -0.09], 500, {
-	startAngle: 45,
-	stopAngle: 135
-}).addTo(map);
+L.circleMarker([51.5, -0.09], 500)
+.setStartAngle(45)
+.setStopAngle(135)
+.addTo(map);
 ```
 
 Draw the same semicircle using `setDirection(direction, size)`:

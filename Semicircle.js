@@ -1,5 +1,5 @@
 /**
- * Semicircle extension for L.Circle.
+ * Semicircle extension for L.CircleMarker.
  * Jan Pieter Waagmeester <jieter@jieter.nl>
  */
 
@@ -9,9 +9,9 @@
 (function (L) {
 
 	// save original getPathString function to draw a full circle.
-	var original_getPathString = L.Circle.prototype.getPathString;
+	var original_getPathString = L.CircleMarker.prototype.getPathString;
 
-	L.Circle = L.Circle.extend({
+	L.CircleMarker = L.CircleMarker.extend({
 		options: {
 			startAngle: 0,
 			stopAngle: 359.9999
@@ -86,7 +86,7 @@
 			return this.redraw();
 		}
 	});
-	L.Circle.include(!L.Path.CANVAS ? {} : {
+	L.CircleMarker.include(!L.Path.CANVAS ? {} : {
 		_drawPath: function () {
 			var center = this._point,
 			    r = this._radius;

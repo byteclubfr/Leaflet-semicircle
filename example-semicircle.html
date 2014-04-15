@@ -24,7 +24,7 @@
 		for(var i = 1; i <= 16; i++){
 			for(var j = 1; j <= 12; j++){
 				rot = j * 60;
-				L.circle([50.70 - (j * 0.02), -0.18 + (i * 0.02)], radius, {
+				L.circleMarker([50.70 - (j * 0.02), -0.18 + (i * 0.02)], radius, {
 					color: '#f03',
 					opacity: 0.7,
 					weight: 2,
@@ -36,7 +36,7 @@
 
 		// draw a row of 16 columns using setDirection
 		for(var i = 1; i <= 16; i++) {
-			L.circle([50.72, -0.18 + (i * 0.02)], radius, {
+			L.circleMarker([50.72, -0.18 + (i * 0.02)], radius, {
 				color: '#03f',
 				opacity: 0.7,
 				weight: 2

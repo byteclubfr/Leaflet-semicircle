@@ -84,6 +84,18 @@
 			this.options.stopAngle = direction + (degrees / 2);
 
 			return this.redraw();
+		},
+		// See issue Leaflet/Leaflet#440
+		getBounds: function () {
+			var map = this._map,
+				delta = this._radius * Math.cos(Math.PI / 4),
+				point = map.project(this._latlng),
+				swPoint = new L.Point(point.x - delta, point.y + delta),
+				nePoint = new L.Point(point.x + delta, point.y - delta),
+				zoom = map.getZoom(),
+				sw = map.unproject(swPoint, zoom, true),
+				ne = map.unproject(nePoint, zoom, true);
+			return new L.LatLngBounds(sw, ne);
 		}
 	});
 	L.CircleMarker.include(!L.Path.CANVAS ? {} : {
